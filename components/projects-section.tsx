@@ -23,7 +23,7 @@ const projects: Project[] = [
     title: "FactorSphere",
     description:
       "Open-source SaaS platform democratizing journal metrics. Built with Cloudflare Workers + Pinecone + AI analytics. Used by researchers worldwide.",
-    image: "/analytics-dashboard-dark-theme-with-charts-and-met.jpg",
+    image: "/factor.png",
     links: [
       { label: "View Project", href: "#", icon: "external" },
       { label: "GitHub", href: "https://github.com/REXFEDEC", icon: "github" },
@@ -34,7 +34,7 @@ const projects: Project[] = [
     id: "scanweb",
     title: "ScanWeb",
     description: "AI-powered vulnerability scanner with comprehensive reports, user management, Supabase backend.",
-    image: "/security-scanner-interface-dark-theme-with-vulnera.jpg",
+    image: "/scan.png",
     links: [
       { label: "Try ScanWeb", href: "#", icon: "external" },
       { label: "GitHub", href: "https://github.com/REXFEDEC", icon: "github" },
@@ -45,7 +45,7 @@ const projects: Project[] = [
     id: "musik",
     title: "MusiK",
     description: "Cross-platform Flutter music app powered by YouTube Music API. Real shuffle, clean UI.",
-    image: "/music-player-app-dark-theme-with-album-art-and-con.jpg",
+    image: "/musik.png",
     links: [{ label: "GitHub Repo", href: "https://github.com/REXFEDEC", icon: "github" }],
     tags: ["Flutter", "YouTube API", "Cross-platform"],
   },
@@ -53,7 +53,7 @@ const projects: Project[] = [
     id: "3d-work",
     title: "3D Work",
     description: "Blender animations, character renders, creative experimental VFX reels.",
-    video: "/3d-rendered-character-animation-dark-background-ci.jpg",
+    video: "/exp.mp4",
     links: [{ label: "@sam33dr", href: "https://www.instagram.com/sam33dr", icon: "instagram" }],
     tags: ["Blender", "3D Animation", "VFX"],
   },
@@ -102,19 +102,20 @@ function ProjectCard({ project }: { project: Project }) {
       <div className="relative aspect-video overflow-hidden bg-secondary/20">
         {project.video ? (
           <div className="relative w-full h-full">
-            <img
-              src={project.video || "/placeholder.svg"}
-              alt={project.title}
+            <video
+              src={project.video}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              muted
+              loop
+              playsInline
+              onMouseOver={(e) => e.currentTarget.play()}
+              onMouseOut={(e) => e.currentTarget.pause()}
             />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-16 h-16 rounded-full bg-primary/80 flex items-center justify-center cursor-pointer hover:bg-primary transition-colors">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-16 h-16 rounded-full bg-primary/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <Play className="w-8 h-8 text-primary-foreground ml-1" />
               </div>
             </div>
-            <p className="absolute bottom-4 left-4 text-xs text-muted-foreground bg-background/80 px-2 py-1 rounded">
-              Video placeholder — replace with your 3D reel
-            </p>
           </div>
         ) : (
           <div className="relative w-full h-full">
@@ -123,9 +124,6 @@ function ProjectCard({ project }: { project: Project }) {
               alt={project.title}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <p className="absolute bottom-4 left-4 text-xs text-muted-foreground bg-background/80 px-2 py-1 rounded">
-              Image placeholder — replace with project screenshot
-            </p>
           </div>
         )}
       </div>

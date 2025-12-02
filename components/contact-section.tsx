@@ -25,28 +25,12 @@ const socialLinks = [
     color: "group-hover:text-blue-400",
   },
   {
-    icon: Instagram,
-    href: "https://www.instagram.com/sameer.mkv",
-    label: "Instagram",
-    username: "@sameer.mkv",
-    description: "Life in frames",
-    color: "group-hover:text-pink-400",
-  },
-  {
     icon: Coffee,
     href: "https://buymeacoffee.com/sameermann",
     label: "Buy Me a Coffee",
     username: "sameermann",
     description: "Fuel the caffeine addiction",
     color: "group-hover:text-yellow-400",
-  },
-  {
-    icon: Mail,
-    href: "mailto:sameermann5335@gmail.com",
-    label: "Email",
-    username: "sameermann5335@gmail.com",
-    description: "Old school works too",
-    color: "group-hover:text-green-400",
   },
 ]
 
@@ -121,83 +105,6 @@ export function ContactSection() {
               </div>
             </a>
           ))}
-        </div>
-
-        {/* Contact Form */}
-        <div className="glass-card rounded-2xl p-8 mt-16">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                Name
-              </label>
-              <Input
-                id="name"
-                type="text"
-                value={formState.name}
-                onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                placeholder="Your name"
-                required
-                className="bg-secondary/30 border-border/50 focus:border-primary focus:ring-primary/20 rounded-xl"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                Email
-              </label>
-              <Input
-                id="email"
-                type="email"
-                value={formState.email}
-                onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                placeholder="your@email.com"
-                required
-                className="bg-secondary/30 border-border/50 focus:border-primary focus:ring-primary/20 rounded-xl"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                Message
-              </label>
-              <Textarea
-                id="message"
-                value={formState.message}
-                onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                placeholder="Your message..."
-                required
-                rows={5}
-                className="bg-secondary/30 border-border/50 focus:border-primary focus:ring-primary/20 rounded-xl resize-none"
-              />
-            </div>
-
-            <Button
-              type="submit"
-              disabled={isSubmitting || isSubmitted}
-              className={`w-full rounded-full py-6 text-base font-medium transition-all ${
-                isSubmitted
-                  ? "bg-green-500/20 text-green-400 border border-green-500/30"
-                  : "glow-button bg-primary hover:bg-primary/90 text-primary-foreground"
-              }`}
-            >
-              {isSubmitting ? (
-                <span className="flex items-center gap-2">
-                  <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
-                  Sending...
-                </span>
-              ) : isSubmitted ? (
-                <span className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4" />
-                  Message Sent!
-                </span>
-              ) : (
-                <span className="flex items-center gap-2">
-                  <Send className="w-4 h-4" />
-                  Send Message
-                </span>
-              )}
-            </Button>
-          </form>
         </div>
 
         {/* Extra CTA */}

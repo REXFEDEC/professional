@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useRef, useEffect } from "react"
+import { useState } from "react"
 import { Send, Sparkles, User, Bot, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -24,15 +24,6 @@ export function ChatbotSection() {
   ])
   const [input, setInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }
-
-  useEffect(() => {
-    scrollToBottom()
-  }, [messages])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -49,30 +40,35 @@ export function ChatbotSection() {
     setIsLoading(true)
 
     try {
-      // Replace this URL with your actual Cloudflare Worker endpoint
-      const response = await fetch("https://sameer.goneto.space/your-worker-url", {
+      console.log("[Chatbot] Sending message:", userMessage.content)
+      const response = await fetch("https://adhdbackend.sameermann5335.workers.dev/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ message: userMessage.content }),
       })
+      console.log("[Chatbot] Response status:", response.status)
 
       if (!response.ok) {
-        throw new Error("Failed to get response")
+        throw new Error(`Failed to get response: ${response.status}`)
       }
 
       const data = await response.json()
+      console.log("[Chatbot] Response JSON:", data)
+
+      const aiReply = data?.response ?? data?.reply
+      console.log("[Chatbot] Parsed reply:", aiReply)
 
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
-        content: data.response || "I apologize, but I couldn't process your request. Please try again.",
+        content: aiReply || "I apologize, but I couldn't process your request. Please try again.",
       }
 
       setMessages((prev) => [...prev, assistantMessage])
-    } catch {
-      // Fallback response for demo purposes
+    } catch (error) {
+      console.error("[Chatbot] Error handling message:", error)
       const fallbackMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
@@ -81,6 +77,7 @@ export function ChatbotSection() {
       }
       setMessages((prev) => [...prev, fallbackMessage])
     } finally {
+      console.log("[Chatbot] Request complete")
       setIsLoading(false)
     }
   }
@@ -179,7 +176,6 @@ export function ChatbotSection() {
                 </div>
               </div>
             )}
-            <div ref={messagesEndRef} />
           </div>
 
           {/* Input */}

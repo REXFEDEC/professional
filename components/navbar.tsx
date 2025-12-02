@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Sparkles } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
@@ -21,59 +20,45 @@ export function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
-    window.addEventListener("scroll", handleScroll)
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    handleScroll()
+
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   return (
     <>
       {/* Desktop navbar */}
-      <nav className="fixed z-50 hidden md:flex justify-center top-0 left-0 right-0 pt-4 pointer-events-none">
+      <nav className="fixed z-50 hidden md:flex justify-center top-0 left-0 right-0 pt-6 pointer-events-none">
         <div
           className={cn(
-            "pointer-events-auto glass-card border border-border/50 shadow-lg shadow-primary/5",
-            "transition-[border-radius,padding,max-width] duration-500 ease-out",
-            isScrolled ? "rounded-full py-2 px-2 max-w-fit" : "rounded-2xl py-3 px-4 max-w-4xl w-[90%]",
+            "pointer-events-auto glass-card border border-border/50 shadow-lg shadow-primary/5 transition-all duration-500 w-full max-w-5xl px-8 py-4 rounded-2xl",
+            isScrolled && "bg-background/80 backdrop-blur-xl"
           )}
         >
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center justify-between gap-6">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group px-2">
-              <div
-                className={cn(
-                  "rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30",
-                  "transition-all duration-500 ease-out",
-                  isScrolled ? "w-7 h-7" : "w-8 h-8",
-                )}
-              >
-                <Sparkles
-                  className={cn(
-                    "text-primary transition-all duration-500 ease-out",
-                    isScrolled ? "w-3.5 h-3.5" : "w-4 h-4",
-                  )}
-                />
-              </div>
-              <span
-                className={cn(
-                  "font-bold text-foreground whitespace-nowrap transition-all duration-500 ease-out",
-                  isScrolled ? "text-sm" : "text-lg",
-                )}
-              >
+            <Link href="/" className="flex items-center gap-3 group">
+              <img
+                src="/sm.png"
+                alt="Sameer Mann"
+                className="rounded-full bg-primary/20 group-hover:bg-primary/30 transition-colors duration-300"
+                width={36}
+                height={36}
+              />
+              <span className="font-bold text-lg text-foreground whitespace-nowrap group-hover:text-primary transition-colors">
                 Sameer Mann
               </span>
             </Link>
 
             {/* Desktop Navigation Links */}
-            <div className="flex items-center">
+            <div className="flex items-center gap-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={cn(
-                    "text-muted-foreground hover:text-foreground font-medium rounded-full hover:bg-secondary/50 whitespace-nowrap",
-                    "transition-all duration-500 ease-out",
-                    isScrolled ? "text-xs px-3 py-1.5" : "text-sm px-4 py-2",
-                  )}
+                  className="text-sm text-muted-foreground hover:text-foreground font-medium rounded-full hover:bg-secondary/60 px-4 py-2 whitespace-nowrap transition-all duration-300"
                 >
                   {link.label}
                 </Link>
@@ -88,9 +73,11 @@ export function Navbar() {
         <div className="px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                <Sparkles className="w-4 h-4 text-primary" />
-              </div>
+              <img 
+                src="/sm.png"
+                alt="Sameer Mann"
+                className="w-8 h-8 rounded-full bg-primary/20 group-hover:bg-primary/30 transition-colors"
+              />
               <span className="text-lg font-bold text-foreground">Sameer Mann</span>
             </Link>
 
