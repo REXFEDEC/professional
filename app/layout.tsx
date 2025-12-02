@@ -1,4 +1,5 @@
 import type React from "react"
+import { Suspense } from "react"
 import type { Metadata, Viewport } from "next"
 import { Space_Grotesk, Geist_Mono } from "next/font/google"
 import "./globals.css"
@@ -89,7 +90,9 @@ export default function RootLayout({
         className={`${spaceGrotesk.variable} ${geistMono.variable} font-sans antialiased bg-background text-foreground`}
       >
         <CustomCursor />
-        <ClientRedirect />
+        <Suspense fallback={null}>
+          <ClientRedirect />
+        </Suspense>
         {children}
       </body>
     </html>
