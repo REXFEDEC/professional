@@ -7,9 +7,7 @@ import { cn } from "@/lib/utils"
 const navLinks = [
   { href: "#projects", label: "Projects" },
   { href: "#about", label: "About" },
-  { href: "#3d-work", label: "3D Work" },
   { href: "#chatbot", label: "Chatbot" },
-  { href: "#connect", label: "Connect" },
 ]
 
 export function Navbar() {
@@ -30,41 +28,42 @@ export function Navbar() {
   return (
     <>
       {/* Desktop navbar */}
-      <nav className="fixed z-50 hidden md:flex justify-center top-0 left-0 right-0 pt-6 pointer-events-none">
-        <div
-          className={cn(
-            "pointer-events-auto glass-card border border-border/50 shadow-lg shadow-primary/5 transition-all duration-500 w-full max-w-5xl px-8 py-4 rounded-2xl",
-            isScrolled && "bg-background/80 backdrop-blur-xl"
-          )}
-        >
-          <div className="flex items-center justify-between gap-6">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <img
-                src="/sm.png"
-                alt="Sameer Mann"
-                className="rounded-full bg-primary/20 group-hover:bg-primary/30 transition-colors duration-300"
-                width={36}
-                height={36}
-              />
-              <span className="font-bold text-lg text-foreground whitespace-nowrap group-hover:text-primary transition-colors">
-                Sameer Mann
-              </span>
-            </Link>
+      <nav
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 hidden md:block border-b border-border/60 transition-colors",
+          isScrolled ? "bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/75" : "bg-background/70"
+        )}
+      >
+        <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3">
+            <img
+              src="/sm.png"
+              alt="Sameer Mann"
+              className="hidden aspect-square w-9 rounded-full border border-border/50 bg-primary/20 md:block"
+            />
+            <span className="text-base font-semibold text-foreground">Sameer Mann</span>
+          </Link>
 
-            {/* Desktop Navigation Links */}
-            <div className="flex items-center gap-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm text-muted-foreground hover:text-foreground font-medium rounded-full hover:bg-secondary/60 px-4 py-2 whitespace-nowrap transition-all duration-300"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
+          {/* Desktop Navigation Links */}
+          <div className="flex items-center gap-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
+
+          <Link
+            href="#connect"
+            className="hidden items-center gap-2 rounded-full border border-border/60 px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary hover:bg-primary/10 md:inline-flex"
+          >
+            Let’s connect
+          </Link>
         </div>
       </nav>
 
@@ -81,30 +80,38 @@ export function Navbar() {
               <span className="text-lg font-bold text-foreground">Sameer Mann</span>
             </Link>
 
-            <button
-              className="relative w-6 h-6 flex flex-col items-center justify-center"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              <span
-                className={cn(
-                  "absolute w-5 h-0.5 bg-foreground rounded-full transition-all duration-300 ease-out",
-                  isMobileMenuOpen ? "rotate-45 top-[11px]" : "rotate-0 top-[6px]",
-                )}
-              />
-              <span
-                className={cn(
-                  "absolute w-5 h-0.5 bg-foreground rounded-full transition-all duration-300 ease-out top-[11px]",
-                  isMobileMenuOpen ? "opacity-0 scale-0" : "opacity-100 scale-100",
-                )}
-              />
-              <span
-                className={cn(
-                  "absolute w-5 h-0.5 bg-foreground rounded-full transition-all duration-300 ease-out",
-                  isMobileMenuOpen ? "-rotate-45 top-[11px]" : "rotate-0 top-[16px]",
-                )}
-              />
-            </button>
+            <div className="flex items-center gap-3">
+              <Link
+                href="#connect"
+                className="inline-flex items-center rounded-full border border-border/60 px-3 py-1 text-sm font-medium text-foreground transition-colors hover:border-primary hover:bg-primary/10"
+              >
+                Let’s connect
+              </Link>
+              <button
+                className="relative w-6 h-6 flex flex-col items-center justify-center"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                <span
+                  className={cn(
+                    "absolute w-5 h-0.5 bg-foreground rounded-full transition-all duration-300 ease-out",
+                    isMobileMenuOpen ? "rotate-45 top-[11px]" : "rotate-0 top-[6px]",
+                  )}
+                />
+                <span
+                  className={cn(
+                    "absolute w-5 h-0.5 bg-foreground rounded-full transition-all duration-300 ease-out top-[11px]",
+                    isMobileMenuOpen ? "opacity-0 scale-0" : "opacity-100 scale-100",
+                  )}
+                />
+                <span
+                  className={cn(
+                    "absolute w-5 h-0.5 bg-foreground rounded-full transition-all duration-300 ease-out",
+                    isMobileMenuOpen ? "-rotate-45 top-[11px]" : "rotate-0 top-[16px]",
+                  )}
+                />
+              </button>
+            </div>
           </div>
 
           <div

@@ -109,8 +109,8 @@ export function ChatbotSection() {
           {/* Chat Header */}
           <div className="bg-gradient-to-r from-primary/10 to-accent/10 p-4 sm:p-6 border-b border-border/50">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-primary/30 flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-primary" />
+              <div className="w-11 h-11 rounded-full overflow-hidden border border-border/40 bg-primary/10">
+                <img src="/robo.png" alt="AI assistant avatar" className="h-full w-full object-cover" />
               </div>
               <div>
                 <h3 className="font-semibold text-foreground">Sameer's AI Assistant</h3>
@@ -125,38 +125,40 @@ export function ChatbotSection() {
 
           {/* Messages */}
           <div className="h-80 sm:h-96 overflow-y-auto p-4 sm:p-6 space-y-4">
-            {messages.map((message) => (
-              <div key={message.id} className={cn("flex gap-3", message.role === "user" ? "flex-row-reverse" : "")}>
-                <div
-                  className={cn(
-                    "w-8 h-8 rounded-full flex items-center justify-center shrink-0",
-                    message.role === "user" ? "bg-secondary/50" : "bg-primary/20",
-                  )}
-                >
-                  {message.role === "user" ? (
-                    <User className="w-4 h-4 text-foreground" />
-                  ) : (
-                    <Sparkles className="w-4 h-4 text-primary" />
-                  )}
+            {messages.map((message) => {
+              const isUser = message.role === "user"
+              const avatarSrc = isUser ? "/human.png" : "/robo.png"
+              const avatarAlt = isUser ? "User avatar" : "AI assistant avatar"
+
+              return (
+                <div key={message.id} className={cn("flex gap-3", isUser ? "flex-row-reverse" : "")}>
+                  <div
+                    className={cn(
+                      "w-9 h-9 rounded-full overflow-hidden border border-border/40 shrink-0",
+                      isUser ? "bg-secondary/40" : "bg-primary/10",
+                    )}
+                  >
+                    <img src={avatarSrc} alt={avatarAlt} className="h-full w-full object-cover" />
+                  </div>
+                  <div
+                    className={cn(
+                      "max-w-[80%] rounded-2xl px-4 py-3 text-sm sm:text-base",
+                      isUser
+                        ? "bg-primary/20 text-foreground rounded-tr-none"
+                        : "bg-secondary/30 text-foreground rounded-tl-none",
+                    )}
+                  >
+                    {message.content}
+                  </div>
                 </div>
-                <div
-                  className={cn(
-                    "max-w-[80%] rounded-2xl px-4 py-3 text-sm sm:text-base",
-                    message.role === "user"
-                      ? "bg-primary/20 text-foreground rounded-tr-none"
-                      : "bg-secondary/30 text-foreground rounded-tl-none",
-                  )}
-                >
-                  {message.content}
-                </div>
-              </div>
-            ))}
+              )
+            })}
 
             {/* Loading indicator */}
             {isLoading && (
               <div className="flex gap-3">
-                <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
-                  <Sparkles className="w-4 h-4 text-primary" />
+                <div className="w-9 h-9 rounded-full overflow-hidden border border-border/40 bg-primary/10">
+                  <img src="/robo.png" alt="AI assistant typing" className="h-full w-full object-cover" />
                 </div>
                 <div className="bg-secondary/30 rounded-2xl rounded-tl-none px-4 py-3">
                   <div className="flex gap-1">
@@ -180,18 +182,18 @@ export function ChatbotSection() {
 
           {/* Input */}
           <form onSubmit={handleSubmit} className="p-4 sm:p-6 border-t border-border/50 bg-secondary/5">
-            <div className="flex gap-2 sm:gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <Input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask me something..."
                 disabled={isLoading}
-                className="flex-1 bg-secondary/30 border-border/50 focus:border-primary focus:ring-primary/20 rounded-full text-sm sm:text-base"
+                className="flex-1 bg-secondary/30 border-border/50 focus:border-primary focus:ring-primary/20 rounded-full text-sm sm:text-base h-11 sm:h-12"
               />
               <Button
                 type="submit"
                 disabled={isLoading || !input.trim()}
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary hover:bg-primary/90 p-0 glow-button"
+                className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-primary hover:bg-primary/90 p-0 glow-button flex items-center justify-center"
               >
                 <Send className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
               </Button>

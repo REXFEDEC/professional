@@ -25,8 +25,8 @@ const projects: Project[] = [
       "Open-source SaaS platform democratizing journal metrics. Built with Cloudflare Workers + Pinecone + AI analytics. Used by researchers worldwide.",
     image: "/factor.png",
     links: [
-      { label: "View Project", href: "#", icon: "external" },
-      { label: "GitHub", href: "https://github.com/REXFEDEC", icon: "github" },
+      { label: "View Project", href: "https://lander.factorsphere.org", icon: "external" },
+      { label: "GitHub", href: "https://github.com/factorsphere/data", icon: "github" },
     ],
     tags: ["Cloudflare Workers", "Pinecone", "AI Analytics"],
   },
@@ -36,8 +36,8 @@ const projects: Project[] = [
     description: "AI-powered vulnerability scanner with comprehensive reports, user management, Supabase backend.",
     image: "/scan.png",
     links: [
-      { label: "Try ScanWeb", href: "#", icon: "external" },
-      { label: "GitHub", href: "https://github.com/REXFEDEC", icon: "github" },
+      { label: "Try ScanWeb", href: "https://scan.goneto.space", icon: "external" },
+      { label: "GitHub", href: "https://github.com/REXFEDEC/scanweb", icon: "github" },
     ],
     tags: ["Security", "AI", "Supabase"],
   },
@@ -46,7 +46,7 @@ const projects: Project[] = [
     title: "MusiK",
     description: "Cross-platform Flutter music app powered by YouTube Music API. Real shuffle, clean UI.",
     image: "/musik.png",
-    links: [{ label: "GitHub Repo", href: "https://github.com/REXFEDEC", icon: "github" }],
+    links: [{ label: "GitHub Repo", href: "https://github.com/REXFEDEC/musik", icon: "github" }],
     tags: ["Flutter", "YouTube API", "Cross-platform"],
   },
   {
