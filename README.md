@@ -1,157 +1,74 @@
-# Sameer Mann — Personal Portfolio
+# Sameer Mann — Portfolio
 
-A dark, futuristic, minimalistic personal portfolio website built with Next.js 15, Tailwind CSS v4, and shadcn/ui.
+A futuristic personal site showcasing Sameer Mann’s software projects, experiments, and interactive AI assistant. Think glassmorphism, glowing accents, and storytelling designed for recruiters, collaborators, and fellow builders who stumble onto the repo.
 
-## 🚀 Live Site
+## 🌐 Quick Links
 
-[https://sameer.goneto.space](https://sameer.goneto.space)
+- **Live site:** [sameer.goneto.space](https://sameer.goneto.space)
+- **Resume:** [Download PDF](/res.pdf)
+- **Flagship projects:**
+  - [FactorSphere](https://lander.factorsphere.org) – AI-powered research metrics
+  - [ScanWeb](https://scan.goneto.space) – security scanner with intelligent reporting
+  - [MusiK](https://github.com/REXFEDEC/musik) – cross-platform music app
+- **Email:** [sameermann5335@gmail.com](mailto:sameermann5335@gmail.com)
 
-## ✨ Features
+## ✨ Highlights
 
-- **Dark Futuristic Design** — Deep black background with subtle grid textures and radial glows
-- **Glassmorphic UI** — Semi-transparent cards with backdrop blur effects
-- **Smooth Animations** — Fade-ins, hover effects, and floating elements
-- **AI Chatbot Widget** — Integrated chatbot with customizable backend endpoint
-- **Fully Responsive** — Mobile-first design that works on all devices
-- **SEO Optimized** — Proper meta tags, Open Graph, and Twitter cards
+- **Cohesive brand system** built around the new `sm.png` mark, custom favicons, and social preview art (`meta.png`).
+- **Rich project cards** featuring custom imagery (`scan.png`, `musik.png`, `factor.png`) and a hover-to-play 3D reel (`exp.mp4`).
+- **Chatbot experience** powered by a Cloudflare Worker, complete with bespoke avatars (`human.png`, `robo.png`) and keyboard-friendly interactions.
+- **Responsive glassmorphism**: desktop gets a Vercel-inspired navbar, mobile keeps a minimalist hamburger + CTA duo.
+- **SEO & PWA ready** through tailored metadata, manifest, and icon set.
 
-## 🛠️ Tech Stack
+## 🧱 Stack
 
-- **Framework:** Next.js 15 (App Router)
-- **Styling:** Tailwind CSS v4
-- **UI Components:** shadcn/ui
-- **Typography:** Space Grotesk
-- **Deployment:** Cloudflare Pages
+- **Framework:** Next.js 16 (App Router) + React 19
+- **Styling:** Tailwind CSS v4 with custom tokens/effects
+- **UI Kit:** shadcn/ui (Radix primitives with theme styling)
+- **Fonts:** Space Grotesk & Geist Mono
+- **Hosting:** Cloudflare Pages (`sameer.goneto.space`, fallback `sameerm.pages.dev`)
+- **Chatbot backend:** Cloudflare Workers (`adhdbackend.sameermann5335.workers.dev`)
 
-## 📦 Installation
+## 🗺️ Page Tour
 
-### Option 1: Using npm (Recommended)
+- **Hero:** Animated intro with CTA and highlight stats.
+- **Projects:** Four spotlight cards (FactorSphere, ScanWeb, MusiK, 3D Work) with external links and tech badges.
+- **Experience sections:** About snapshot, timeline, testimonials, and contact grid.
+- **Chatbot:** “Sameer’s AI assistant” featuring robo avatar, typing indicator, and real responses from the Worker.
+- **Footer:** Glass card with social links (GitHub, LinkedIn, Email, Resume) and a playful sign-off.
 
-\`\`\`bash
-# Clone the repository
-git clone https://github.com/REXFEDEC/portfolio.git
-cd portfolio
+## 🤖 Chatbot Notes
 
-# Install dependencies
-npm install
+- Frontend: [components/chatbot-section.tsx](cci:7://file:///c:/Users/samee/Downloads/portfolio-website-design/components/chatbot-section.tsx:0:0-0:0)
+- Endpoint: `https://adhdbackend.sameermann5335.workers.dev/`
+- Response parsing covers both `response` and `reply` keys
+- Avatars: `/human.png` (user) & `/robo.png` (assistant), plus `/robo.png` in the header and typing indicator
 
-# Run development server
-npm run dev
-\`\`\`
+## 🖼️ Branding & Assets
 
-### Option 2: Using shadcn CLI
+| Asset | Purpose |
+| --- | --- |
+| `sm.png` | Primary logo, favicon source, manifest icons |
+| `meta.png` | Open Graph & Twitter cards |
+| `factor.png`, `scan.png`, `musik.png`, `exp.mp4` | Project visuals |
+| `robo.png`, `human.png` | Chatbot avatars |
+| `res.pdf` | Latest résumé |
 
-\`\`\`bash
-npx shadcn@latest init
-\`\`\`
+All assets live in [/public](cci:7://file:///c:/Users/samee/Downloads/portfolio-website-design/public:0:0-0:0), so Cloudflare can serve them straight from the CDN edge.
 
-## 🔧 Development
+## 📦 Build & Deploy Snapshot
 
-\`\`\`bash
-# Start development server
-npm run dev
+- Static export is enabled via [next.config.mjs](cci:7://file:///c:/Users/samee/Downloads/portfolio-website-design/next.config.mjs:0:0-0:0) (`output: "export"`).
+- `pnpm build` compiles the site and writes the bundle into [/out](cci:7://file:///c:/Users/samee/Downloads/portfolio-website-design/out:0:0-0:0).
+- Cloudflare Pages runs `pnpm install && pnpm build`, then serves [/out](cci:7://file:///c:/Users/samee/Downloads/portfolio-website-design/out:0:0-0:0).
+- `_redirects` + a client-side check nudge visitors from `sameerm.pages.dev` to `sameer.goneto.space`.
 
-# Build for production
-npm run build
+## 🤝 Connect
 
-# Start production server
-npm start
-
-# Lint code
-npm run lint
-\`\`\`
-
-## 🚀 Deployment to Cloudflare Pages
-
-### Method 1: Direct Upload
-
-1. Build your project:
-   \`\`\`bash
-   npm run build
-   \`\`\`
-
-2. Go to [Cloudflare Pages Dashboard](https://dash.cloudflare.com/?to=/:account/pages)
-
-3. Create a new project → Direct Upload
-
-4. Upload the `out` folder (or `.next` for SSR)
-
-### Method 2: Git Integration
-
-1. Push your code to GitHub
-
-2. Go to Cloudflare Pages Dashboard
-
-3. Create a new project → Connect to Git
-
-4. Select your repository
-
-5. Configure build settings:
-   - **Build command:** `npm run build`
-   - **Build output directory:** `.next`
-   - **Node version:** 18+
-
-6. Deploy!
-
-### Environment Variables
-
-If using the chatbot feature, set:
-- `NEXT_PUBLIC_CHATBOT_URL` — Your Cloudflare Worker endpoint
-
-## 📁 Project Structure
-
-\`\`\`
-├── app/
-│   ├── globals.css      # Global styles and design tokens
-│   ├── layout.tsx       # Root layout with metadata
-│   └── page.tsx         # Home page
-├── components/
-│   ├── ui/              # shadcn/ui components
-│   ├── navbar.tsx       # Navigation bar
-│   ├── hero-section.tsx # Hero section
-│   ├── about-section.tsx
-│   ├── projects-section.tsx
-│   ├── contact-section.tsx
-│   ├── footer.tsx
-│   └── chatbot-widget.tsx
-├── lib/
-│   └── utils.ts         # Utility functions
-└── public/              # Static assets
-\`\`\`
-
-## 🎨 Customization
-
-### Chatbot Endpoint
-
-Update the chatbot API endpoint in `components/chatbot-widget.tsx`:
-
-\`\`\`tsx
-const response = await fetch("https://sameer.goneto.space/your-worker-url", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ message: userMessage.content }),
-})
-\`\`\`
-
-### Project Images
-
-Replace placeholder images in `components/projects-section.tsx` with your actual project screenshots.
-
-### Colors
-
-Modify the design tokens in `app/globals.css` to change the color scheme.
-
-## 📄 License
-
-MIT License — feel free to use this template for your own portfolio!
-
-## 👤 Author
-
-**Sameer Mann**
 - GitHub: [@REXFEDEC](https://github.com/REXFEDEC)
 - LinkedIn: [sameer-mann](https://www.linkedin.com/in/sameer-mann)
-- Instagram: [@sameer.mkv](https://www.instagram.com/sameer.mkv)
+- Email: [sameermann5335@gmail.com](mailto:sameermann5335@gmail.com)
 
 ---
 
-*Crafted with curiosity, caffeine, and Cloudflare Workers.*
+Crafted with curiosity, caffeine, Cloudflare Workers — and a soft spot for polished interfaces.
