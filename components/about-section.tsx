@@ -1,6 +1,6 @@
 "use client"
 
-import { User, Code, Heart, Sparkles } from "lucide-react"
+import { Code, Heart, Sparkles } from "lucide-react"
 
 const skills = ["Python", "Cloudflare Workers", "Linux", "JavaScript", "MySQL", "Git", "Blender"]
 
@@ -24,8 +24,8 @@ export function AboutSection() {
         {/* Main About Card */}
         <div className="glass-card rounded-2xl p-8 md:p-12">
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
-              <User className="w-8 h-8 text-primary" />
+            <div className="w-16 h-16 rounded-full overflow-hidden border border-border/40 bg-primary/15">
+              <img src="/sm.png" alt="Sameer Mann logo" className="h-full w-full object-cover" />
             </div>
             <div>
               <h3 className="text-2xl font-bold text-foreground">Sameer Mann</h3>

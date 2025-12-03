@@ -99,7 +99,7 @@ export function ChatbotSection() {
           <p className="text-muted-foreground max-w-2xl mx-auto text-base sm:text-lg">
             Since everyone has a chatbot project on their portfolio these days, I figured I'd add one too.
             <br className="hidden sm:block" />
-            <span className="text-primary">At least this one actually works.</span>
+            <span className="text-primary"> At least this one actually works.</span>
           </p>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full mt-6" />
         </div>
