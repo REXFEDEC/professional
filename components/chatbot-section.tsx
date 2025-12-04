@@ -83,13 +83,13 @@ export function ChatbotSection() {
   }
 
   return (
-    <section id="chatbot" className="relative py-32 px-4 sm:px-6 overflow-hidden">
+    <section id="chatbot" className="relative py-32 px-4 sm:px-6 overflow-hidden" data-animate-on-scroll>
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] radial-glow opacity-20 pointer-events-none" />
 
-      <div className="relative z-10 max-w-4xl mx-auto">
+      <div className="relative z-10 max-w-4xl mx-auto" data-animate-on-scroll>
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" data-animate-on-scroll>
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center animate-pulse-glow">
               <Bot className="w-6 h-6 text-primary" />
@@ -105,7 +105,7 @@ export function ChatbotSection() {
         </div>
 
         {/* Chat Container */}
-        <div className="glass-card rounded-2xl overflow-hidden shadow-2xl shadow-primary/5">
+        <div className="glass-card rounded-2xl overflow-hidden shadow-2xl shadow-primary/5" data-animate-on-scroll>
           {/* Chat Header */}
           <div className="bg-gradient-to-r from-primary/10 to-accent/10 p-4 sm:p-6 border-b border-border/50">
             <div className="flex items-center gap-3">
@@ -202,7 +202,7 @@ export function ChatbotSection() {
         </div>
 
         {/* Fun footer note */}
-        <p className="text-center text-xs text-muted-foreground mt-6">
+        <p className="text-center text-xs text-muted-foreground mt-6" data-animate-on-scroll>
           Powered by Cloudflare Workers. No GPUs were harmed in the making of this chatbot.
         </p>
       </div>

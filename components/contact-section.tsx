@@ -59,13 +59,13 @@ export function ContactSection() {
   }
 
   return (
-    <section id="connect" className="relative py-32 px-6">
+    <section id="connect" className="relative py-32 px-6" data-animate-on-scroll>
       {/* Background glow */}
       <div className="absolute inset-0 radial-glow opacity-40 pointer-events-none" />
 
-      <div className="relative z-10 max-w-5xl mx-auto">
+      <div className="relative z-10 max-w-5xl mx-auto" data-animate-on-scroll>
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-animate-on-scroll>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">Let's Connect</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Pick your preferred way to reach out. I'm always happy to chat about projects, ideas, or just geek out about
@@ -85,6 +85,7 @@ export function ContactSection() {
               style={{
                 animationDelay: `${index * 100}ms`,
               }}
+              data-animate-on-scroll
             >
               {/* Hover glow effect */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 radial-glow-strong pointer-events-none" />
@@ -108,7 +109,7 @@ export function ContactSection() {
         </div>
 
         {/* Extra CTA */}
-        <div className="mt-16">
+        <div className="mt-16" data-animate-on-scroll>
           <div className="glass-card rounded-2xl p-8 max-w-2xl mx-auto flex flex-col items-center text-center">
             <p className="text-lg text-muted-foreground mb-2">Prefer a quick email?</p>
             <a

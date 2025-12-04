@@ -67,13 +67,13 @@ const iconMap = {
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="relative py-32 px-4 sm:px-6 overflow-hidden">
+    <section id="projects" className="relative py-32 px-4 sm:px-6 overflow-hidden" data-animate-on-scroll>
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] radial-glow opacity-30 pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto" data-animate-on-scroll>
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-animate-on-scroll>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">Projects</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             A collection of things I've built — from open-source tools to creative experiments.
@@ -97,6 +97,7 @@ function ProjectCard({ project }: { project: Project }) {
     <div
       id={project.id === "3d-work" ? "3d-work" : undefined}
       className="glass-card rounded-2xl overflow-hidden group transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10"
+      data-animate-on-scroll
     >
       {/* Media Container */}
       <div className="relative aspect-video overflow-hidden bg-secondary/20">

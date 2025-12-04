@@ -14,15 +14,15 @@ export function AboutSection() {
       {/* Background glow */}
       <div className="absolute inset-0 radial-glow opacity-50 pointer-events-none" />
 
-      <div className="relative z-10 max-w-4xl mx-auto">
+      <div data-animate-on-scroll className="relative z-10 max-w-4xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div data-animate-on-scroll className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">About Me</h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
         </div>
 
         {/* Main About Card */}
-        <div className="glass-card rounded-2xl p-8 md:p-12">
+        <div data-animate-on-scroll className="glass-card rounded-2xl p-8 md:p-12">
           <div className="flex items-center gap-4 mb-8">
             <div className="w-16 h-16 rounded-full overflow-hidden border border-border/40 bg-primary/15">
               <img src="/sm.png" alt="Sameer Mann logo" className="h-full w-full object-cover" />

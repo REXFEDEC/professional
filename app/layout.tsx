@@ -5,6 +5,7 @@ import { Space_Grotesk, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { CustomCursor } from "@/components/custom-cursor"
 import { ClientRedirect } from "@/components/client-redirect"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -93,6 +94,7 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <ClientRedirect />
         </Suspense>
+        <ScrollReveal />
         {children}
       </body>
     </html>

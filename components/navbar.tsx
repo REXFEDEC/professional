@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navLinks = [
@@ -28,30 +29,38 @@ export function Navbar() {
   return (
     <>
       {/* Desktop navbar */}
-      <nav
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 hidden md:block border-b border-border/60 transition-colors",
-          isScrolled ? "bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/75" : "bg-background/70"
-        )}
-      >
-        <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
-          {/* Logo */}
+      <nav className="pointer-events-none fixed top-4 left-0 right-0 z-50 hidden md:flex justify-center">
+        <div
+          className={cn(
+            "pointer-events-auto flex items-center justify-between gap-4 rounded-full border border-border/50 bg-background/70 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] shadow-lg",
+            isScrolled
+              ? "w-[min(620px,calc(100%-4rem))] px-6 py-3 shadow-primary/10"
+              : "w-[min(760px,calc(100%-4rem))] px-8 py-4 shadow-primary/20"
+          )}
+        >
           <Link href="/" className="flex items-center gap-3">
             <img
               src="/sm.png"
               alt="Sameer Mann"
-              className="hidden aspect-square w-9 rounded-full border border-border/50 bg-primary/20 md:block"
+              className={cn(
+                "aspect-square rounded-full border border-border/50 bg-primary/20 transition-all duration-500",
+                isScrolled ? "w-8" : "w-10"
+              )}
             />
-            <span className="text-base font-semibold text-foreground">Sameer Mann</span>
+            <span className="text-sm font-semibold tracking-wide text-foreground md:text-base">Sameer Mann</span>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <div className="flex items-center gap-6">
+          <div
+            className={cn(
+              "flex items-center justify-center gap-4 rounded-full bg-secondary/10 px-4 py-2 transition-all duration-500",
+              isScrolled ? "gap-3 px-4" : "gap-4 px-6"
+            )}
+          >
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className="text-xs font-medium uppercase tracking-wide text-muted-foreground transition-colors hover:text-foreground"
               >
                 {link.label}
               </Link>
@@ -60,15 +69,19 @@ export function Navbar() {
 
           <Link
             href="#connect"
-            className="hidden items-center gap-2 rounded-full border border-border/60 px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary hover:bg-primary/10 md:inline-flex"
+            className={cn(
+              "inline-flex items-center gap-2 rounded-full border border-border/60 bg-primary/15 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-foreground transition-colors hover:border-primary/70 hover:bg-primary/25",
+              isScrolled ? "text-[0.7rem]" : "text-xs"
+            )}
           >
             Let’s connect
+            <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
       </nav>
 
       {/* Mobile navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 md:hidden bg-background/80 backdrop-blur-xl border-b border-border/50">
+      <nav className="fixed top-0 left-0 right-0 z-50 md:hidden bg-background/80 backdrop-blur-xl">
         <div className="px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2 group">

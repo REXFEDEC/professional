@@ -16,7 +16,7 @@ export function HeroSection() {
         style={{ animationDelay: "-3s" }}
       />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <div data-animate-on-scroll className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         {/* Main Headline */}
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight tracking-tight text-balance">
           Building thoughtful software.
@@ -33,7 +33,7 @@ export function HeroSection() {
         </p>
 
         {/* CTA Buttons */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+        <div data-animate-on-scroll className="mt-12 flex flex-wrap items-center justify-center gap-4">
           <Button
             asChild
             className="glow-button bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 sm:px-8 py-6 text-sm sm:text-base font-medium"
