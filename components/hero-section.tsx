@@ -49,7 +49,7 @@ export function HeroSection() {
             variant="outline"
             className="border-border/50 hover:bg-secondary/50 text-foreground rounded-full px-6 sm:px-8 py-6 text-sm sm:text-base font-medium bg-transparent"
           >
-            <Link href="#contact">Contact Me</Link>
+            <Link href="#connect">Contact Me</Link>
           </Button>
 
           <Button asChild variant="ghost" className="hover:bg-secondary/50 text-foreground rounded-full p-3">

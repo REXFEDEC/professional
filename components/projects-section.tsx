@@ -31,15 +31,16 @@ const projects: Project[] = [
     tags: ["Cloudflare Workers", "Pinecone", "AI Analytics"],
   },
   {
-    id: "scanweb",
-    title: "ScanWeb",
-    description: "AI-powered vulnerability scanner with comprehensive reports, user management, Supabase backend.",
-    image: "/scan.png",
+    id: "labi",
+    title: "Labi",
+    description:
+      "Automated laboratory image organization platform helping researchers tag microscopy, tissue, and culture shots using ML workflows.",
+    image: "/labi.png",
     links: [
-      { label: "Try ScanWeb", href: "https://scan.goneto.space", icon: "external" },
-      { label: "GitHub", href: "https://github.com/REXFEDEC/scanweb", icon: "github" },
+      { label: "Explore Labi", href: "https://labi.goneto.space", icon: "external" },
+      { label: "Join Beta", href: "https://labi.goneto.space/beta-signup/", icon: "external" },
     ],
-    tags: ["Security", "AI", "Supabase"],
+    tags: ["Computer Vision", "ML Ops", "Research Tools"],
   },
   {
     id: "musik",
@@ -96,7 +97,7 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <div
       id={project.id === "3d-work" ? "3d-work" : undefined}
-      className="glass-card rounded-2xl overflow-hidden group transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/10"
+      className="glass-card hover-lift rounded-2xl overflow-hidden group"
       data-animate-on-scroll
     >
       {/* Media Container */}

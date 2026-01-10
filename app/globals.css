@@ -173,6 +173,26 @@
   background: oklch(0.18 0.012 250 / 0.65);
   backdrop-filter: blur(14px);
   border: 1px solid oklch(0.38 0.015 250 / 0.35);
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.6s ease,
+    border-color 0.6s ease,
+    background-color 0.6s ease;
+  transform-origin: center;
+  will-change: transform, box-shadow;
+}
+
+.glass-card:hover,
+.glass-card:focus-visible {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 45px oklch(0.45 0.08 250 / 0.35);
+  border-color: oklch(0.6 0.15 250 / 0.4);
+  background: oklch(0.2 0.015 250 / 0.85);
+}
+
+.glass-card:active {
+  transform: translateY(-2px) scale(0.99);
+  transition-duration: 0.2s;
 }
 
 /* Glow button */

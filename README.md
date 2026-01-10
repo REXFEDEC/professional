@@ -8,8 +8,9 @@ A futuristic personal site showcasing Sameer Mann’s software projects, experim
 - **Resume:** [Download PDF](/res.pdf)
 - **Flagship projects:**
   - [FactorSphere](https://lander.factorsphere.org) – AI-powered research metrics
-  - [ScanWeb](https://scan.goneto.space) – security scanner with intelligent reporting
+  - [Labi](https://labi.goneto.space) – automated laboratory image organization via ML
   - [MusiK](https://github.com/REXFEDEC/musik) – cross-platform music app
+
 - **Email:** [sameermann5335@gmail.com](mailto:sameermann5335@gmail.com)
 
 ## ✨ Highlights
@@ -32,7 +33,7 @@ A futuristic personal site showcasing Sameer Mann’s software projects, experim
 ## 🗺️ Page Tour
 
 - **Hero:** Animated intro with CTA and highlight stats.
-- **Projects:** Four spotlight cards (FactorSphere, ScanWeb, MusiK, 3D Work) with external links and tech badges.
+- **Projects:** Four spotlight cards (FactorSphere, Labi, MusiK, 3D Work) with external links and tech badges.
 - **Experience sections:** About snapshot, timeline, testimonials, and contact grid.
 - **Chatbot:** “Sameer’s AI assistant” featuring robo avatar, typing indicator, and real responses from the Worker.
 - **Footer:** Glass card with social links (GitHub, LinkedIn, Email, Resume) and a playful sign-off.

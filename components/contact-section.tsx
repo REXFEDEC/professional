@@ -81,7 +81,7 @@ export function ContactSection() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative glass-card rounded-2xl p-6 hover:bg-secondary/30 transition-all duration-300 hover:scale-[1.02] overflow-hidden"
+              className="group relative glass-card hover-lift rounded-2xl p-6 overflow-hidden"
               style={{
                 animationDelay: `${index * 100}ms`,
               }}
